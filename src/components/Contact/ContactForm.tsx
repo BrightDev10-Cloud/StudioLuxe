@@ -14,7 +14,7 @@ const formSchema = z.object({
   email: z.string().email("Invalid email address"),
   website: z.string().optional(),
   budget: z.enum(["<5k", "5k-10k", "10k-50k", "50k+"], {
-    errorMap: () => ({ message: "Please select a budget range" }),
+    message: "Please select a budget range",
   }),
   goals: z.string().min(10, "Please tell us a bit more about your goals"),
 });
