@@ -16,12 +16,13 @@
 
 .headline {
     font-size: clamp(3rem, 5vw, 6rem);
-    line-height: 0.9;
+    line-height: 1;
     font-weight: 800;
     color: var(--foreground);
     mix-blend-mode: multiply; /* Helps text pop against light bg */
     font-family: var(--font-heading);
-    text-align: center;
+    text-align: left;
+    max-width: 1000px;
 }
 
 .subheadline {

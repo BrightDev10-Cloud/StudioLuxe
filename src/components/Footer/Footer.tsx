@@ -34,9 +34,9 @@ export default function Footer() {
         </div>
 
         <div className={styles.actionRight}>
-             <button className={styles.getStartedBtn}>
+             <Link href="/contact" className={styles.getStartedBtn}>
                 <span>↗</span> Get Started
-             </button>
+             </Link>
              
              <div className={styles.chatPrompt}>
                 <div className={styles.avatars}>

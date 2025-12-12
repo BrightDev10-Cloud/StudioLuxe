@@ -41,6 +41,7 @@ export default function Navbar() {
             width={24} 
             height={24} 
             className={styles.logoIcon}
+            style={{ width: 'auto', height: 'auto' }}
         />
         <Image
             src="/Luxe Studio/Luxe_studio_woodmark.svg"
@@ -48,6 +49,7 @@ export default function Navbar() {
             width={120}
             height={24}
             className={styles.woodmark}
+            style={{ width: 'auto', height: 'auto' }}
         />
       </Link>
 

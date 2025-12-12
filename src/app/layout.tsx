@@ -62,8 +62,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${lato.variable} ${montserrat.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${lato.variable} ${montserrat.variable}`}>
+      <body>
         <SmoothScroll>
           <ThemeProvider attribute="data-theme" defaultTheme="system" enableSystem>
             <Preloader />

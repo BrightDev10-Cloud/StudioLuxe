@@ -83,7 +83,7 @@ export default function Team() {
         </div>
       </div>
 
-      <div className={styles.footerRow}>
+      {/* <div className={styles.footerRow}>
           <div className={styles.footerCol}>
               <span className={styles.colTitle}>Mail</span>
               <a href="mailto:hello@studioluxe.xyz" className={styles.colText}>hello@studioluxe.xyz</a>
@@ -96,7 +96,7 @@ export default function Team() {
                <span className={styles.colTitle}>Social</span>
                <a href="#" className={styles.colText}>LinkedIn</a>
           </div>
-      </div>
+      </div> */}
 
     </section>
   );

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "./ServicesCloud.module.css";
+import Link from "next/link";
 import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -62,17 +63,17 @@ export default function ServicesCloud() {
             </p>
             
             <div className={styles.ctaGroup}>
-                <button className={styles.bookBtn} data-cursor="hover">Book Intro</button>
-                <button className={styles.arrowBtn} data-cursor="hover">
+                <Link href="/contact" className={styles.bookBtn} data-cursor="hover">Book Intro</Link>
+                <Link href="/contact" className={styles.arrowBtn} data-cursor="hover">
                     <Image 
                         src="/Luxe Studio/ArrowUpRight.svg" 
                         alt="Arrow" 
                         width={20} 
                         height={20} 
-                        style={{ filter: "invert(1)" }}
+                        style={{ filter: "invert(1)", width: 'auto', height: 'auto' }}
                         className={styles.btnIcon} 
                     />
-                </button>
+                </Link>
             </div>
         </div>
 
