@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Studio Luxe",
     images: [
       {
-        url: "/Luxe Studio/logo_icon.svg", // Ideally use a large 1200x630 png for OG images
+        url: "/assets/social-share.png",
         width: 1200,
         height: 630,
         alt: "Studio Luxe Og Image",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Studio Luxe | Full-Stack Cloud/AI Design & Development",
     description: "We build premium digital products with a tech-brutalist edge.",
-    images: ["/Luxe Studio/logo_icon.svg"],
+    images: ["/assets/social-share.png"],
     creator: "@studioluxe",
   },
 };
