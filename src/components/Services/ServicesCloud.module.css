@@ -1,0 +1,168 @@
+.servicesSection {
+    padding: 10rem var(--spacing-gutter);
+    background: var(--background);
+    color: var(--foreground);
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 3rem;
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.squareIcon {
+    width: 10px;
+    height: 10px;
+    background-color: var(--foreground);
+    display: inline-block;
+}
+
+.description {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    max-width: 90%;
+    font-weight: 300;
+}
+
+.ctaGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.bookBtn {
+    background-color: var(--foreground);
+    color: var(--background);
+    padding: 0.8rem 2rem;
+    border-radius: 99px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--foreground);
+    transition: all 0.3s ease;
+}
+
+.arrowBtn {
+    background-color: var(--foreground);
+    color: var(--background);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--foreground);
+    transition: all 0.3s ease;
+}
+
+.bookBtn:hover, .arrowBtn:hover {
+    background-color: transparent;
+    color: var(--foreground);
+}
+
+.rightCol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Align all to right by default */
+    gap: 0.8rem;
+    perspective: 1000px;
+}
+
+/* Helper classes for offset look to match image */
+.offset_0 { margin-right: 50px; }
+.offset_1 { margin-right: 0px; }
+.offset_2 { margin-right: 80px; }
+.offset_3 { margin-right: 20px; }
+.offset_4 { margin-right: 60px; }
+.offset_5 { margin-right: 10px; }
+.offset_6 { margin-right: 90px; }
+.offset_7 { margin-right: 30px; }
+.offset_8 { margin-right: 70px; }
+.offset_9 { margin-right: 0px; }
+
+.pill {
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--foreground);
+    border-radius: 99px;
+    font-size: clamp(1rem, 1.5vw, 1.25rem); /* Responsive font size */
+    cursor: default;
+    background: transparent;
+    transition: background-color 0.3s, color 0.3s; /* Smooth color swap */
+    white-space: nowrap;
+    width: fit-content;
+    display: inline-block;
+    position: relative;
+    /* Transformation handled by GSAP */
+}
+
+.pill:hover {
+    background: var(--foreground);
+    color: var(--background);
+}
+
+/* Scale effect handled by GSAP for smoother physicsfeel */
+
+/* Theme adaptation handled by foreground/background vars */
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .rightCol {
+        align-items: flex-start;
+    }
+    
+    .pill {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+    }
+    
+    .description {
+        font-size: 1.2rem;
+    }
+}
+
+/* Button Icon Logic */
+/* By default, button is foreground color (black in light), so icon should be background (white). Invert(1) makes black->white. */
+/* On Hover: button becomes transparent with border. Text/Icon becomes foreground (black). */
+.arrowBtn:hover .btnIcon,
+.bookBtn:hover {
+    filter: none !important; /* Reset any filters */
+    color: var(--foreground);
+}
+
+/* Dark mode adjustment if needed */
+:global([data-theme='dark']) .btnIcon {
+     filter: none !important; /* In dark mode, fg is white. bg is black. Button is white. Icon needs to be black. */
+     filter: invert(1) !important; /* Wait, if button is white (fg), icon needs to be black. White -> Invert -> Black. Correct. */
+}

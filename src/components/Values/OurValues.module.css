@@ -1,0 +1,167 @@
+.valuesSection {
+    padding: 10rem var(--spacing-gutter);
+    background: var(--background);
+    color: var(--foreground);
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.label {
+    grid-column: 1 / -1; /* Values label spans full width or sits above */
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.squareIcon {
+    width: 10px;
+    height: 10px;
+    background-color: var(--foreground);
+    display: inline-block;
+}
+
+/* Left Column: Pills */
+.leftCol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Left align pills */
+    gap: 0.8rem;
+    perspective: 1000px;
+}
+
+/* Helper classes for offset look similar to services but maybe mirrored logic or random */
+.offset_0 { margin-left: 0px; }
+.offset_1 { margin-left: 50px; }
+.offset_2 { margin-left: 20px; }
+.offset_3 { margin-left: 80px; }
+.offset_4 { margin-left: 10px; }
+.offset_5 { margin-left: 60px; }
+.offset_6 { margin-left: 30px; }
+.offset_7 { margin-left: 90px; }
+.offset_8 { margin-left: 40px; }
+.offset_9 { margin-left: 70px; }
+
+
+.pill {
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--foreground);
+    border-radius: 99px;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    cursor: default;
+    background: transparent;
+    transition: background-color 0.3s, color 0.3s;
+    white-space: nowrap;
+    width: fit-content;
+    display: inline-block;
+}
+
+.pill:hover {
+    background: var(--foreground);
+    color: var(--background);
+}
+
+
+/* Right Column: Text and CTA */
+.rightCol {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center vertically relative to pills if needed */
+    gap: 3rem;
+    padding-left: 2rem;
+}
+
+.description {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-weight: 300;
+    max-width: 500px;
+}
+
+.ctaGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.bookBtn {
+    background-color: var(--foreground);
+    color: var(--background);
+    padding: 0.8rem 2rem;
+    border-radius: 99px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--foreground);
+    transition: all 0.3s ease;
+}
+
+.arrowBtn {
+    background-color: var(--foreground);
+    color: var(--background);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 1px solid var(--foreground);
+    transition: all 0.3s ease;
+}
+
+.arrowBtn:hover .btnIcon,
+.bookBtn:hover {
+    filter: none !important;
+    background-color: transparent;
+    color: var(--foreground);
+}
+
+/* Dark mode icon adjustment */
+:global([data-theme='dark']) .btnIcon {
+     filter: invert(1) !important; 
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .rightCol {
+        padding-left: 0;
+        order: -1; /* Text first on mobile? Or pills first? Image has pills left/top usually. Let's keep typical flow: Items then Text? Or Text then Items. Services had Text Left. Here Text Right. */
+         /* Actually on mobile it usually stacks natural order suitable for reading. Text -> Items is standard. 
+            So RightCol (Text) should probably be order -1.
+         */
+         align-items: flex-start;
+    }
+    
+    .leftCol {
+         /* Reset margins on mobile for cleaner stack */
+         align-items: center;
+    }
+    
+    .pill {
+        margin-left: 0 !important; /* Force center/align on mobile */
+    }
+}

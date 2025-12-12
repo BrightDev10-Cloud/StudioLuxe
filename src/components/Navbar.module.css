@@ -1,0 +1,129 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem var(--spacing-gutter);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    color: var(--foreground);
+    background: transparent;
+    transition: padding 0.3s;
+}
+
+.scrolled {
+    background: var(--background);
+    padding: 1rem var(--spacing-gutter);
+    border-bottom: 1px solid rgba(136, 136, 136, 0.1);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.logoIcon {
+    width: 24px;
+    height: 24px;
+    /* Adapts to theme via specific global selectors or filters if needed. 
+       Assuming SVG is black by default. */
+}
+
+/* In dark mode, invert the logo if it's black-on-transparent */
+:global([data-theme='dark']) .logoIcon,
+:global([data-theme='dark']) .woodmark,
+:global([data-theme='dark']) .themeIcon {
+    filter: invert(1);
+}
+
+.woodmark {
+    height: 24px;
+    width: auto;
+}
+
+.themeIcon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.5s ease;
+}
+
+.themeToggle:hover .themeIcon {
+    transform: rotate(180deg);
+}
+
+.logoText {
+    display: none; /* Removed in favor of SVG */
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.hireBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--foreground);
+    color: var(--background);
+    padding: 0.6rem 1.2rem;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.hireBtn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.themeToggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: background 0.2s;
+}
+
+.themeToggle:hover {
+    background: rgba(136, 136, 136, 0.1);
+}
+
+.arrowIcon {
+    transition: transform 0.2s;
+    filter: invert(1); /* Light Mode: Button is Black, Arrow must be White (inv(Black)=White) */
+}
+
+/* Dark Mode: Button is White, Arrow must be Black (inv(Black)=White -> reset to 0/none) */
+:global([data-theme='dark']) .arrowIcon {
+    filter: unset;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .brand {
+        font-size: 1.1rem;
+    }
+    
+    .hireBtn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+}

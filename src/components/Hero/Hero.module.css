@@ -1,0 +1,46 @@
+.hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-gutter);
+    overflow: hidden;
+}
+
+.content {
+    max-width: var(--container-width);
+    width: 100%;
+    z-index: 1;
+}
+
+.headline {
+    font-size: clamp(3rem, 5vw, 6rem);
+    line-height: 0.9;
+    font-weight: 800;
+    color: var(--foreground);
+    mix-blend-mode: multiply; /* Helps text pop against light bg */
+    font-family: var(--font-heading);
+    text-align: center;
+}
+
+.subheadline {
+    margin-top: 2rem;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    max-width: 1000px;
+    opacity: .5;
+    /* font-family: var(--font-body); */
+}
+
+.scrollIndicator {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    font-family: var(--font-mono);
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}

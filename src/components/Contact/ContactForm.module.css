@@ -1,0 +1,95 @@
+.formContainer {
+  width: 100%;
+  max-width: 800px;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.inputGroup {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  display: block;
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(136, 136, 136, 0.3);
+  padding: 1rem 0;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--foreground);
+  border-radius: 0;
+  transition: border-color 0.3s ease;
+  outline: none;
+}
+
+.input:focus,
+.textarea:focus,
+.select:focus {
+  border-bottom: 1px solid var(--foreground);
+}
+
+.textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.error {
+  font-family: var(--font-mono);
+  color: #ff4d4d;
+  font-size: 0.75rem;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+.submitBtn {
+  background: var(--foreground);
+  color: var(--background);
+  padding: 1.2rem 3rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Custom Select styling to match brutalist look */
+.select {
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0 center;
+}
+
+:global([data-theme='dark']) .select {
+   background-image: url('data:image/svg+xml;utf8,<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" xmlns="http://www.w3.org/2000/svg"><path d="M6 9L12 15L18 9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+}

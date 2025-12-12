@@ -1,0 +1,122 @@
+.workSection {
+    padding: 8rem var(--spacing-gutter);
+    background: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+}
+
+.container {
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.previewOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 400px;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.previewImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 4rem;
+}
+
+.squareIcon {
+    width: 10px;
+    height: 10px;
+    background-color: var(--foreground);
+    display: inline-block;
+}
+
+.projectList {
+    display: flex;
+    flex-direction: column;
+}
+
+.projectItem {
+    border-top: 1px solid rgba(136, 136, 136, 0.2);
+    padding: 2rem 0;
+    display: flex;
+    align-items: baseline;
+    gap: 2rem;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none; /* Remove default link underline (purple) */
+}
+
+.projectItem:last-child {
+    border-bottom: 1px solid rgba(136, 136, 136, 0.2);
+}
+
+.projectName {
+    font-family: var(--font-heading);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    margin: 0;
+    transition: transform 0.3s ease, padding-left 0.3s ease, color 0.3s ease, text-decoration-color 0.3s ease;
+    color: var(--foreground);
+    text-decoration: underline;
+    text-decoration-color: var(--foreground); /* Explicit white underline */
+    text-underline-offset: 6px; /* Better spacing */
+}
+
+.projectTag {
+    font-family: var(--font-mono); /* Or body font, referencing image looks small/clean */
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(136, 136, 136, 0.4);
+    border-radius: 99px;
+    color: var(--foreground);
+    opacity: 0.7;
+    white-space: nowrap;
+}
+
+/* Hover Effects */
+.projectItem:hover .projectName {
+    transform: translateX(10px);
+    padding-left: 1rem;
+    color: var(--accent);
+    text-decoration-color: var(--accent); /* Sync underline with text color */
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .projectItem {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: flex-start;
+    }
+    
+    .projectName {
+        font-size: 2rem;
+    }
+    
+    .projectTag {
+        align-self: flex-start;
+    }
+}

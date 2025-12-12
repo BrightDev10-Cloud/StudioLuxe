@@ -1,0 +1,28 @@
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--foreground);
+    color: var(--background);
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.counter {
+    font-family: var(--font-mono);
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+.text {
+    margin-top: 1rem;
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    opacity: 0.7;
+}

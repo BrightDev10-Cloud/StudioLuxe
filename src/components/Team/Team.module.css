@@ -1,0 +1,157 @@
+.teamSection {
+    padding: 10rem var(--spacing-gutter);
+    background: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.label {
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 6rem;
+}
+
+.squareIcon {
+    width: 10px;
+    height: 10px;
+    background-color: var(--foreground);
+    display: inline-block;
+}
+
+/* Team Grid */
+.teamGrid {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 8rem;
+    flex-wrap: wrap;
+}
+
+.memberCard {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    opacity: 0; /* Animated in */
+}
+
+/* Staggered layout offsets */
+.memberCard:nth-child(1) { margin-top: 0; }
+.memberCard:nth-child(2) { margin-top: 8rem; }
+.memberCard:nth-child(3) { margin-top: 16rem; }
+
+
+.imageWrapper {
+    width: 100%;
+    aspect-ratio: 4/5;
+    position: relative;
+    overflow: hidden;
+    /* Simulate the gradient look from image */
+}
+
+.memberImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1) contrast(1.2);
+    transition: filter 0.3s ease, transform 0.5s ease;
+}
+
+/* Gradient Overlay Effect */
+.imageOverlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #ff00cc, #3333ff, #00ccff); /* Pink to Blue/Cyan */
+    mix-blend-mode: screen; /* Or overlay/color-dodge depending on bg */
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.memberCard:hover .memberImage {
+    transform: scale(1.05);
+    filter: grayscale(0) contrast(1);
+}
+
+.memberCard:hover .imageOverlay {
+    opacity: 0.2; /* Reveal original on hover */
+}
+
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.name {
+    font-family: var(--font-heading); /* Or default sans if heading is too stylized? Image uses clean sans. Let's stick to consistent Heading font or Body bold. */
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.role {
+    font-size: 1rem;
+    opacity: 0.7;
+    font-weight: 300;
+}
+
+.subRole {
+    font-size: 0.9rem;
+    opacity: 0.5;
+}
+
+/* Footer Section */
+.footerRow {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid rgba(136, 136, 136, 0.2);
+    padding-top: 4rem;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footerCol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.colTitle {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.colText {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    color: var(--foreground);
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .teamGrid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .memberCard {
+        margin-top: 0 !important; /* Remove stagger on mobile */
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .footerRow {
+        flex-direction: column;
+        gap: 3rem;
+    }
+}
