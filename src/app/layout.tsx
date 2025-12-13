@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Studio Luxe",
     images: [
       {
-        url: "/assets/social-share.png",
+        url: "/assets/social-share.jpg",
         width: 1200,
         height: 630,
         alt: "Studio Luxe Og Image",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Studio Luxe | Full-Stack Cloud/AI Design & Development",
     description: "We build premium digital products with a tech-brutalist edge.",
-    images: ["/assets/social-share.png"],
+    images: ["/assets/social-share.jpg"],
     creator: "@studioluxe",
   },
 };
