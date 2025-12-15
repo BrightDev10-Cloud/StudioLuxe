@@ -6,7 +6,7 @@
   },
   { 
     "name": "Buildas", 
-    "tags": "Real estate marketplace", 
+    "tags": "Branding, Product Design, Development", 
     "image": "/projects/buildas.png" 
   },
   { 
@@ -15,28 +15,14 @@
     "image": "/projects/murib.png" 
   },
   { 
-    "name": "Meximum", 
-    "tags": "Branding", 
-    "image": "/projects/murib.png" 
+    "name": "Cactii", 
+    "tags": "Branding, Product Design, Development", 
+    "image": "/projects/cactii.png" 
   },
   { 
-    "name": "Rework Academy", 
-    "tags": "Web design", 
-    "image": "/projects/buildas.png" 
-  },
-  { 
-    "name": "Bulan Pay", 
-    "tags": "Branding, web design", 
-    "image": "/projects/volthub.png" 
-  },
-  { 
-    "name": "Curlarna", 
-    "tags": "Branding, Web Design and Development, Deployment", 
-    "image": "/projects/syntetik.png" 
-  },
-  { 
-    "name": "Syntetik", 
-    "tags": "Branding, Web Design and Development, Deployment", 
-    "image": "/projects/syntetik.png" 
+    "name": "Synstrix", 
+    "tags": "Branding, Product Design, Development", 
+    "image": "/projects/synstrix.png" 
   }
+
 ]
