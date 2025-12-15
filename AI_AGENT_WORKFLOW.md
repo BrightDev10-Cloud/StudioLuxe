@@ -169,3 +169,47 @@ Rename and configure the columns to match our code:
 
 Now your code has permission to write to this specific table!
 
+
+---
+
+## Appendix B: Troubleshooting Email Delivery (The "Silent Block")
+
+If your Notion database is updating but **emails are not arriving**, you are likely hitting **Resend's Test Mode Restriction**.
+
+### The Bottleneck
+On the free/test tier, Resend **ONLY** delivers emails sent **TO** your verified admin email (e.g., `you@gmail.com`). If you test with any other email (like `test@outlook.com`), Resend accepts the request but silently drops the email.
+
+### The Fix: Verify Your Domain
+To send emails to *anyone* (prospects), you must verify your domain (e.g., `studioluxe.xyz`).
+
+#### Instructions for Namecheap (or similar DNS providers)
+
+1.  **Add Domain in Resend**:
+    *   Go to **Resend Dashboard** -> **Domains** -> **Add Domain**.
+    *   Enter your domain (e.g., `studioluxe.xyz`).
+    *   Choose region (usually **US East**).
+
+2.  **Get DNS Records**:
+    *   Resend will provide you with **3 CNAME records** (e.g., `resend._domainkey`, `s1._domainkey`, etc.) and **1 MX record** (sometimes).
+
+3.  **Update Namecheap DNS**:
+    *   Log in to **Namecheap** -> **Domain List** -> **Manage** -> **Advanced DNS**.
+    *   **Action**: Add New Record for each entry provided by Resend.
+    *   **Type**: `CNAME Record`
+    *   **Host**: Copy the "Name" from Resend (e.g., `resend._domainkey`). **Important**: If Namecheap appends your domain automatically, remove the domain part from the Host string.
+    *   **Value**: Copy the "Value" from Resend.
+    *   **TTL**: Automatic.
+
+4.  **Verify Status**:
+    *   Go back to Resend and click **Verify DNS Records**.
+    *   It may take 5-60 minutes to propagate.
+
+5.  **Update Code**:
+    *   Once verified, change your `from` address in `src/app/contact/actions.ts`:
+    ```typescript
+    // OLD
+    from: 'StudioLuxe <onboarding@resend.dev>'
+    
+    // NEW (After verification)
+    from: 'StudioLuxe <hello@studioluxe.xyz>'
+    ```
